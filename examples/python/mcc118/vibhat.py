@@ -163,7 +163,7 @@ def read_and_display_data(hat, num_channels):
     csvfile = open(fileDateTime, "w+")
     csvwriter = csv.writer(csvfile) 
     
-    while total_samples_read < 1000:
+    while total_samples_read < 200000:
         read_result = hat.a_in_scan_read(read_request_size, timeout)
 
         # Check for an overrun error
