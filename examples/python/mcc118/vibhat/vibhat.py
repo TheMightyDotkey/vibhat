@@ -207,6 +207,8 @@ def read_and_display_data(hat, num_channels):
 
     print('\n')
     csvfile.close() 
+
+vibhat()
     
     
 
