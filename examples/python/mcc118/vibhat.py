@@ -45,7 +45,7 @@ def main():
     channels = [0, 1]
     channel_mask = chan_list_to_mask(channels)
     num_channels = len(channels)
-    samples_per_channel = 0
+    samples_per_channel = 100000
     options = OptionFlags.CONTINUOUS
     scan_rate = 50000.0 
     
