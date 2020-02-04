@@ -45,7 +45,7 @@ def main():
     channels = [0, 1]
     channel_mask = chan_list_to_mask(channels)
     num_channels = len(channels)
-    samples_per_channel = 100000
+    samples_per_channel = 150000
     options = OptionFlags.CONTINUOUS
     scan_rate = 50000.0 
     
@@ -178,11 +178,11 @@ def read_and_display_data(hat, num_channels):
         total_samples_read += samples_read_per_channel
         
         totalSamples = len(read_result.data) 
-        print("\r MyTotalSamples = %d\n" % totalSamples)
+        #print("\r MyTotalSamples = %d\n" % totalSamples)
 
         # Display the last sample for each channel.
-        print('\r{:12}'.format(samples_read_per_channel),
-              ' {:12} '.format(total_samples_read), end='')
+        #print('\r{:12}'.format(samples_read_per_channel),
+        #      ' {:12} '.format(total_samples_read), end='')
 
         if samples_read_per_channel > 0:
             index = samples_read_per_channel * num_channels - num_channels
