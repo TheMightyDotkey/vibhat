@@ -6,8 +6,8 @@ def main():
     runs vibhat every minute, compresses vibhat data
 
     """
-FDT = vibhat.vibhat()
-print(FDT)
+    FDT = vibhat.vibhat()
+    print(FDT)
 
 if __name__ == '__main__':
     main()
