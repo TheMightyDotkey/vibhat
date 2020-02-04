@@ -203,7 +203,7 @@ def read_and_display_data(hat, num_channels):
             csvwriter.writerows(myArray) #Write the array to file
             csvfile.flush
 
-        sleep(0.1)
+        #sleep(0.01)
 
     print('\n')
     csvfile.close() 
