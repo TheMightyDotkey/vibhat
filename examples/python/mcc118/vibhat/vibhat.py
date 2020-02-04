@@ -211,7 +211,7 @@ def read_and_display_data(hat, num_channels):
     csvfile.close()
     return(fileDateTime) 
 
-FDT = vibhat()
+
     
     
 
