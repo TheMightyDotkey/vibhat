@@ -114,7 +114,7 @@ def read_and_display_data(hat, num_channels):
         num_channels (int): The number of channels to display.
 
     Returns:
-        None
+        FileDateTime
 
     """
     total_samples_read = 0
@@ -206,9 +206,10 @@ def read_and_display_data(hat, num_channels):
         #sleep(0.01)
 
     print('\n')
-    csvfile.close() 
+    csvfile.close()
+    return(FileDateTime) 
 
-vibhat()
+FDT = vibhat()
     
     
 
