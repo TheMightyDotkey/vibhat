@@ -35,7 +35,7 @@ READ_ALL_AVAILABLE = -1
 CURSOR_BACK_2 = '\x1b[2D'
 ERASE_TO_END_OF_LINE = '\x1b[0K'
 
-def main():
+def vibhat():
     """
     This function is executed automatically when the module is run directly.
     """
@@ -70,10 +70,10 @@ def main():
         print('    Actual scan rate: ', actual_scan_rate)
         print('    Options: ', enum_mask_to_string(OptionFlags, options))
         
-        try:
-            input('\nPress ENTER to continue ...')
-        except (NameError, SyntaxError):
-            pass
+        #try:
+        #   input('\nPress ENTER to continue ...')
+        #except (NameError, SyntaxError):
+        #    pass
 
 
         # Configure and start the scan.
@@ -210,5 +210,4 @@ def read_and_display_data(hat, num_channels):
     
     
 
-if __name__ == '__main__':
-    main()
+
