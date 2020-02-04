@@ -93,13 +93,15 @@ def vibhat():
         print('')
 
         try:
-            read_and_display_data(hat, num_channels)
+            FDT = read_and_display_data(hat, num_channels)
 
         except KeyboardInterrupt:
             # Clear the '^C' from the display.
             print(CURSOR_BACK_2, ERASE_TO_END_OF_LINE, '\n')
     except (HatError, ValueError) as err:
         print('\n', err)
+
+    return(FDT)
 
 
 def read_and_display_data(hat, num_channels):
@@ -207,7 +209,7 @@ def read_and_display_data(hat, num_channels):
 
     print('\n')
     csvfile.close()
-    return(FileDateTime) 
+    return(fileDateTime) 
 
 FDT = vibhat()
     
