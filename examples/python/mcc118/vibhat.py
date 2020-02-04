@@ -194,7 +194,7 @@ def read_and_display_data(hat, num_channels):
                 myArray.append([])  #add a row to the array (COLUMN)
                 for j in range(num_channels):
                     #print('{:10.5f}'.format(read_result.data[j]), 'V ',
-                        end='')
+                    #    end='')
                 	#append a num_channels of data to the array (ROW)
                     myArray[new_index].append(read_result.data[i + j])  
                 new_index+=1
