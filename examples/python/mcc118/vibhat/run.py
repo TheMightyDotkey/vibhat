@@ -12,7 +12,7 @@ def main():
     FDT = vibhat.vibhat()
     print(FDT)
     print('\n')
-    zipname = FDT
+    zipname = FDT[:-4]
     zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED).write(FDT, arcname=FDT)
 
 if __name__ == '__main__':
