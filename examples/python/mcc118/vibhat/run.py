@@ -13,7 +13,7 @@ def main():
     print(FDT)
     print('\n')
     zipname = FDT[:-4]
-    zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED).write(FDT, arcname=FDT)
+    zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED).write(FDT)
 
 if __name__ == '__main__':
     main()
