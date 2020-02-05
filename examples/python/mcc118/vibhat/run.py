@@ -11,6 +11,8 @@ def main():
     """
     FDT = vibhat.vibhat()
     print(FDT)
+    print('\n')
+    zipfile.ZipFile('FDT', 'w').write(FDT, arcname=FDT)
 
 if __name__ == '__main__':
     main()
