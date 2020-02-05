@@ -16,6 +16,7 @@ def main():
     zipname = FDT[:-4]
     filenameonly = FDT.split(os.sep)[-1]
     zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED).write(FDT, filenameonly)
+    os.remove(FDT)
 
 if __name__ == '__main__':
     main()
