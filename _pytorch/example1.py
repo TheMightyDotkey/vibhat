@@ -5,5 +5,6 @@ print(x) """
 
 import torch
 from torch.autograd import Variable
-
-Variable(torch.randn(2,2),requires_grad=True)
+import pandas as pd
+df = pd.read_csv('C:\\Users\\Nick\\source\\repos\\vibhat\\vibhat\\_pytorch\\2020_March_03_065029.csv')
+print('ok')

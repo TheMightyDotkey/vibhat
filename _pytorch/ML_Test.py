@@ -1,24 +1,26 @@
 
 print('test')
 
+from io import StringIO
 from os.path import dirname, join as pjoin
 import numpy as np
 import scipy.io as sp
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def datasetmaker(offset, matfilename):
     """offset is multiple of 256 matfile name is output name"""
 
     #Computes FFT of dataset
-    Fs = 12000
+    Fs = 50000
     T = 1/Fs
-    L = 256
+    L = 50000
     t = np.arange(0, L) * T
-    a = 0 + 256 * offset
-    b = 255 + 256 * offset
-    matfilenamedat = "{}{}.mat" .format(matfilename,offset) #Makes dataset filename
+    a = 0 + 50000 * offset
+    b = 49999 + 50000 * offset
+    matfilenamedat = "{}{}.csv" .format(matfilename,offset) #Makes dataset filename
     matfilenamedat = pjoin(data_dir + '\\Sets', matfilenamedat)
-    vectorname = "fftdata{}" .format(matfilename)
+    #vectorname = "fftdata{}" .format(matfilename)
     S = data[a:b]
 
     f = Fs * np.arange(0, L//2 + 1) / L
@@ -28,21 +30,30 @@ def datasetmaker(offset, matfilename):
     P1 = P2[0:L//2+1]
     P1[1:len(P1)-1] = 2*P1[1:len(P1)-1]
     #P1 = P1/max(P1)  Standardizes the data.  Was removed to use the scaler function later on
+    P1[0] = 0
+    np.savetxt(matfilenamedat, P1, delimiter=',')
+    #sp.savemat(matfilenamedat, {vectorname:P1})
+    #sp.savemat('timefile.mat', {'time':f})
 
-    sp.savemat(matfilenamedat, {vectorname:P1})
-    sp.savemat('timefile.mat', {'time':f})
+    plt.plot(f,P1)
+    plt.show()
 
-matname = 'Normal1HP'
+matname = 'Good'
 
-data_dir = 'C:\\Users\\Nick\\Desktop\\SeDesgn-master\\SeDesgn-master\\ML_Test\\Data'
+data_dir = 'C:\\Users\\Nick\\Desktop\\SeDesgn-master\\SeDesgn-master\\ML_Test\\NickRealData'
 mat_fname = pjoin(data_dir, matname + '.mat')
 
 
-bearingdata = sp.loadmat(mat_fname)
-sorted(bearingdata.keys())
+
+df = pd.read_csv('C:\\Users\\Nick\\source\\repos\\vibhat\\vibhat\\_pytorch\\2020_March_03_065029.csv')
+
+
+bearingdata = np.array(df)
+bearingdata = bearingdata[:,1]
+#sorted(bearingdata.keys())
 print(bearingdata)
 
-data = bearingdata['X098_DE_time']
+data = bearingdata
 print(data)
 
 dataname = matname + 'set'
@@ -51,12 +62,6 @@ datasetmaker(0, dataname)
 datasetmaker(1, dataname)
 datasetmaker(2, dataname)
 datasetmaker(3, dataname)
-datasetmaker(4, dataname)
-datasetmaker(5, dataname)
-datasetmaker(6, dataname)
-datasetmaker(7, dataname)
-datasetmaker(8, dataname)
-datasetmaker(9, dataname)
 
 
 
