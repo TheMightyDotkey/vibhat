@@ -20,6 +20,8 @@ def main():
         filenameonly = FDT.split(os.sep)[-1]
         zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED).write(FDT, filenameonly)
         os.remove(FDT)
+        sleep(5)
+        os.system('rclone copy home/pi/Documents/Measurement_Computing/Scanning_log_files seniordesign:')
         sleep(60)
         
 
